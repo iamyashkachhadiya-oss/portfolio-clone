@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ArrowRight, ExternalLink, Github, Star, Users, Calendar, TrendingUp, Sparkles, Zap, Code2, Globe } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 type Project = {
@@ -28,7 +29,7 @@ const projects: Project[] = [
     id: "1",
     title: "AI-Powered Analytics Dashboard",
     description: "Real-time data visualization platform with machine learning insights and predictive analytics for business intelligence.",
-    image: "/api/placeholder/600/400",
+    image: "/projects/ai-analytics-dashboard/hero.png",
     tech: ["React", "TypeScript", "Python", "TensorFlow", "D3.js"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -46,7 +47,7 @@ const projects: Project[] = [
     id: "2",
     title: "E-Commerce Mobile App",
     description: "Cross-platform mobile application with AR product preview, secure payments, and real-time inventory management.",
-    image: "/api/placeholder/600/400",
+    image: "/projects/ecommerce-mobile/app-screen-1.png",
     tech: ["React Native", "Node.js", "MongoDB", "Stripe API"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -64,7 +65,7 @@ const projects: Project[] = [
     id: "3",
     title: "Collaborative Design System",
     description: "Component library and design system with real-time collaboration, version control, and automated testing.",
-    image: "/api/placeholder/600/400",
+    image: "/projects/design-system/components.png",
     tech: ["Vue.js", "Figma API", "Storybook", "Jest"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -82,7 +83,7 @@ const projects: Project[] = [
     id: "4",
     title: "Blockchain Supply Chain",
     description: "Decentralized supply chain management platform with smart contracts, real-time tracking, and IoT integration.",
-    image: "/api/placeholder/600/400",
+    image: "/projects/blockchain-supply-chain/blockchain.png",
     tech: ["Solidity", "Web3.js", "React", "IPFS"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -100,7 +101,7 @@ const projects: Project[] = [
     id: "5",
     title: "Real-Time Chat Application",
     description: "Scalable messaging platform with end-to-end encryption, video calls, and AI-powered message suggestions.",
-    image: "/api/placeholder/600/400",
+    image: "/projects/chat-application/chat-interface.png",
     tech: ["Next.js", "Socket.io", "WebRTC", "OpenAI API"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -348,11 +349,15 @@ export function Projects() {
                           <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[project.category]} opacity-20`} />
                           <div className="absolute inset-0 bg-black/40" />
                           
-                          {/* Placeholder for project image */}
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                              <Code2 className="w-12 h-12 text-white/50" />
-                            </div>
+                          {/* Project Image */}
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={project.image}
+                              alt={project.title}
+                              fill
+                              className="object-cover"
+                              sizes="(min-width: 640px) 50vw, 100vw"
+                            />
                           </div>
 
                           {/* Floating elements */}
