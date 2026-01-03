@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Home, FileText, User, GraduationCap } from "lucide-react";
+import { Home, FileText, User, Briefcase } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 import { Magnetic } from "@/components/ui/magnetic";
@@ -18,7 +18,7 @@ export function FloatingDock({ delay = 0.6 }: { delay?: number }) {
     () => [
       { id: "home", label: "Home", href: "#home", icon: <Home size={16} /> },
       { id: "work", label: "Work", href: "#work", icon: <FileText size={16} /> },
-      { id: "education", label: "Education", href: "#education", icon: <GraduationCap size={16} /> },
+      { id: "projects", label: "Projects", href: "#projects", icon: <Briefcase size={16} /> },
       { id: "resume", label: "Resume", href: "#resume", icon: <FileText size={16} /> },
       { id: "about", label: "About", href: "#about", icon: <User size={16} /> },
     ],
