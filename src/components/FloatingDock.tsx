@@ -79,10 +79,10 @@ export function FloatingDock({ delay = 0.6 }: { delay?: number }) {
       initial={{ opacity: 0, y: 12, scale: 0.96 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ type: "spring", stiffness: 400, damping: 15, delay }}
-      className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2"
+      className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2 sm:bottom-6"
       aria-label="Primary"
     >
-      <div className="relative flex items-center gap-1 rounded-2xl border border-white/12 bg-white/5 px-2 py-2 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.28),0_2px_8px_rgba(0,0,0,0.14),inset_0_1px_0_rgba(255,255,255,0.08)]">
+      <div className="relative flex items-center gap-0.5 rounded-2xl border border-white/12 bg-white/5 px-1.5 py-1.5 sm:gap-1 sm:px-2 sm:py-2 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.28),0_2px_8px_rgba(0,0,0,0.14),inset_0_1px_0_rgba(255,255,255,0.08)]">
         {items.map((item) => {
           const isActive = item.id === activeId;
 
@@ -103,7 +103,7 @@ export function FloatingDock({ delay = 0.6 }: { delay?: number }) {
                 )}
 
                 <span
-                  className="relative flex items-center gap-2 rounded-xl px-5 py-2 text-[12.5px] font-medium transition-all duration-250 ease-out"
+                  className="relative flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[11px] font-medium transition-all duration-250 ease-out sm:gap-2 sm:px-5 sm:py-2 sm:text-[12.5px]"
                   style={{
                     color: isActive ? "rgba(0,0,0,0.9)" : "rgba(255,255,255,0.55)",
                   }}
@@ -114,7 +114,7 @@ export function FloatingDock({ delay = 0.6 }: { delay?: number }) {
                   >
                     {item.icon}
                   </span>
-                  <span>{item.label}</span>
+                  <span className="hidden sm:inline">{item.label}</span>
                 </span>
               </a>
             </Magnetic>

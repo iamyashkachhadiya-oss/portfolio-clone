@@ -22,7 +22,7 @@ export function Certifications() {
 
   const scroll = (direction: "left" | "right") => {
     if (sliderRef.current) {
-      const scrollAmount = 400; // Adjusted for smaller logos
+      const scrollAmount = window.innerWidth < 640 ? 250 : 400; // Smaller scroll on mobile
       sliderRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -37,13 +37,14 @@ export function Certifications() {
     const interval = setInterval(() => {
       if (sliderRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+        const scrollAmount = window.innerWidth < 640 ? 250 : 400;
         
         // If we've reached the end, reset to start
         if (scrollLeft >= scrollWidth - clientWidth - 1) {
           sliderRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           // Scroll to next set of logos
-          sliderRef.current.scrollBy({ left: 400, behavior: "smooth" });
+          sliderRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
       }
     }, 3000); // Auto-scroll every 3 seconds
@@ -58,16 +59,16 @@ export function Certifications() {
   return (
     <section
       id="certifications"
-      className="mx-auto w-full max-w-6xl px-6 py-28 scroll-mt-32"
+      className="mx-auto w-full max-w-6xl px-4 py-16 scroll-mt-20 sm:px-6 sm:py-20 sm:scroll-mt-32"
     >
-      <div className="space-y-10">
+      <div className="space-y-8 sm:space-y-10">
         {/* Header */}
         <div className="space-y-2">
           <p className="text-xs font-medium tracking-[0.22em] text-zinc-500">
             CREDENTIALS
           </p>
-          <h3 className="text-lg font-semibold text-white">Certifications</h3>
-          <p className="max-w-2xl text-zinc-400">
+          <h3 className="text-lg font-semibold text-white sm:text-xl">Certifications</h3>
+          <p className="max-w-2xl text-sm text-zinc-400 sm:text-base">
             Professional certifications from prestigious institutions
           </p>
         </div>
@@ -79,7 +80,7 @@ export function Certifications() {
             <div
               ref={sliderRef}
               onScroll={checkScroll}
-              className="flex gap-8 overflow-x-auto scrollbar-hide scroll-smooth py-4"
+              className="flex gap-4 sm:gap-6 lg:gap-8 overflow-x-auto scrollbar-hide scroll-smooth py-4"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -96,7 +97,7 @@ export function Certifications() {
                 >
                   <div className="relative group">
                     {/* Logo Container */}
-                    <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden">
+                    <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 flex items-center justify-center rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden">
                       {/* Gradient Background */}
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       

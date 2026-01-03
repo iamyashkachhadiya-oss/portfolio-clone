@@ -95,38 +95,40 @@ const ExperienceCard = ({ experience, index }: { experience: Experience; index: 
           className="relative group"
         >
           {/* Card */}
-          <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+          <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 sm:p-6 hover:border-white/20 transition-all duration-300">
             {/* Gradient overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             
             {/* Content */}
             <div className="relative z-10">
               {/* Header */}
-              <div className="flex items-start justify-between gap-4 mb-4">
+              <div className="flex flex-col gap-3 mb-4 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-1">{experience.position}</h3>
-                  <div className="flex items-center gap-2 text-white/60 text-sm">
-                    <Building2 size={14} />
-                    <span>{experience.company}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white/60 text-sm mt-1">
-                    <MapPin size={14} />
-                    <span>{experience.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-white/60 text-sm mt-1">
-                    <Calendar size={14} />
-                    <span>{experience.duration}</span>
+                  <h3 className="text-lg font-bold text-white mb-1 sm:text-xl">{experience.position}</h3>
+                  <div className="flex flex-col gap-1 text-white/60 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Building2 size={12} />
+                      <span>{experience.company}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin size={12} />
+                      <span>{experience.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar size={12} />
+                      <span>{experience.duration}</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Key Highlights */}
               {experience.highlights && (
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {experience.highlights.map((highlight, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border border-blue-500/30"
+                      className="px-2 py-1 text-xs rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-300 border border-blue-500/30"
                     >
                       {highlight}
                     </span>
@@ -137,13 +139,13 @@ const ExperienceCard = ({ experience, index }: { experience: Experience; index: 
               {/* Achievements */}
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-white/80 text-sm font-medium">
-                  <TrendingUp size={14} />
+                  <TrendingUp size={12} />
                   <span>Key Achievements</span>
                 </div>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                   {experience.achievements.map((achievement, i) => (
-                    <li key={i} className="text-white/70 text-sm leading-relaxed flex items-start gap-2">
-                      <span className="text-blue-400 mt-1.5 text-xs">▸</span>
+                    <li key={i} className="text-white/70 text-xs leading-relaxed flex items-start gap-2 sm:text-sm sm:leading-relaxed">
+                      <span className="text-blue-400 mt-1 text-xs">▸</span>
                       <span>{achievement}</span>
                     </li>
                   ))}
@@ -186,7 +188,7 @@ export function WorkExperience() {
     <section
       id="work"
       ref={containerRef}
-      className="relative min-h-screen w-full max-w-7xl mx-auto px-6 py-28 scroll-mt-32"
+      className="relative min-h-screen w-full max-w-7xl mx-auto px-4 py-16 scroll-mt-20 sm:px-6 sm:py-20 sm:scroll-m-32"
       style={{ opacity: opacity as any }}
     >
       {/* Background decoration */}
@@ -198,12 +200,12 @@ export function WorkExperience() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.2 }}
-        className="relative z-10 text-center mb-20"
+        className="relative z-10 text-center mb-12 sm:mb-20"
       >
         <p className="text-xs font-medium tracking-[0.22em] text-zinc-500 mb-2">
           WORK EXPERIENCE
         </p>
-        <h2 className="text-4xl font-bold text-white mb-4">
+        <h2 className="text-2xl font-bold text-white mb-4 sm:text-3xl lg:text-4xl">
           Professional Journey
         </h2>
         <p className="text-white/60 max-w-2xl mx-auto text-lg">
