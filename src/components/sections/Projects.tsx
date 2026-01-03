@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, ExternalLink, Github, Star, Users, Calendar, TrendingUp, Sparkles, Zap } from "lucide-react";
-import { useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Star, Users, Calendar, TrendingUp, Sparkles, Zap, Code2, Globe } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 type Project = {
   id: string;
@@ -20,6 +20,7 @@ type Project = {
     growth?: string;
   };
   category: "web" | "mobile" | "ai" | "design";
+  icon: React.ReactNode;
 };
 
 const projects: Project[] = [
@@ -38,7 +39,8 @@ const projects: Project[] = [
       date: "2024",
       growth: "+45%"
     },
-    category: "ai"
+    category: "ai",
+    icon: <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-red-500" />
   },
   {
     id: "2",
@@ -55,7 +57,8 @@ const projects: Project[] = [
       date: "2024",
       growth: "+32%"
     },
-    category: "mobile"
+    category: "mobile",
+    icon: <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500" />
   },
   {
     id: "3",
@@ -72,7 +75,8 @@ const projects: Project[] = [
       date: "2023",
       growth: "+28%"
     },
-    category: "design"
+    category: "design",
+    icon: <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500" />
   },
   {
     id: "4",
@@ -89,7 +93,26 @@ const projects: Project[] = [
       date: "2023",
       growth: "+15%"
     },
-    category: "web"
+    category: "web",
+    icon: <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500" />
+  },
+  {
+    id: "5",
+    title: "Real-Time Chat Application",
+    description: "Scalable messaging platform with end-to-end encryption, video calls, and AI-powered message suggestions.",
+    image: "/api/placeholder/600/400",
+    tech: ["Next.js", "Socket.io", "WebRTC", "OpenAI API"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
+    featured: false,
+    stats: {
+      stars: 312,
+      users: "15K+",
+      date: "2024",
+      growth: "+67%"
+    },
+    category: "web",
+    icon: <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500" />
   }
 ];
 
@@ -100,179 +123,48 @@ const categoryColors = {
   design: "from-green-500 to-emerald-500"
 };
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  
-  const springConfig = { stiffness: 300, damping: 30 };
-  const scaleX = useSpring(1, springConfig);
-  const scaleY = useSpring(1, springConfig);
-  
-  const handleHover = () => {
-    setIsHovered(true);
-    scaleX.set(1.02);
-    scaleY.set(1.02);
-  };
-  
-  const handleLeave = () => {
-    setIsHovered(false);
-    scaleX.set(1);
-    scaleY.set(1);
-  };
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group"
-    >
-      <div
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 hover:border-white/20 transition-all duration-500"
-        style={{
-          transform: `scale(${scaleX.get()}, ${scaleY.get()})`,
-        }}
-        onMouseEnter={handleHover}
-        onMouseLeave={handleLeave}
-      >
-        {/* Featured Badge */}
-        {project.featured && (
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="absolute top-4 left-4 z-20"
-          >
-            <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 backdrop-blur-sm">
-              <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
-              <span className="text-xs text-yellow-300 font-medium">Featured</span>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Category Badge */}
-        <div className="absolute top-4 right-4 z-20">
-          <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${categoryColors[project.category]}/20 border border-white/20 backdrop-blur-sm`}>
-            <span className="text-xs text-white font-medium capitalize">{project.category}</span>
-          </div>
-        </div>
-
-        {/* Image Container */}
-        <div className="relative h-48 sm:h-56 overflow-hidden">
-          <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[project.category]} opacity-20`} />
-          <div className="absolute inset-0 bg-black/40" />
-          
-          {/* Placeholder for project image */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-              <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${categoryColors[project.category]}`} />
-            </div>
-          </div>
-
-          {/* Overlay on hover */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="p-6 sm:p-8">
-          <div className="space-y-4">
-            {/* Title */}
-            <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 group-hover:bg-clip-text transition-all duration-300">
-              {project.title}
-            </h3>
-
-            {/* Description */}
-            <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-              {project.description}
-            </p>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2">
-              {project.tech.slice(0, 3).map((tech, i) => (
-                <span
-                  key={i}
-                  className="px-2 py-1 text-xs rounded-lg bg-white/5 border border-white/10 text-white/70"
-                >
-                  {tech}
-                </span>
-              ))}
-              {project.tech.length > 3 && (
-                <span className="px-2 py-1 text-xs rounded-lg bg-white/5 border border-white/10 text-white/50">
-                  +{project.tech.length - 3}
-                </span>
-              )}
-            </div>
-
-            {/* Stats */}
-            <div className="flex items-center gap-4 text-xs text-white/50">
-              {project.stats.stars && (
-                <div className="flex items-center gap-1">
-                  <Star className="w-3 h-3" />
-                  <span>{project.stats.stars}</span>
-                </div>
-              )}
-              {project.stats.users && (
-                <div className="flex items-center gap-1">
-                  <Users className="w-3 h-3" />
-                  <span>{project.stats.users}</span>
-                </div>
-              )}
-              <div className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                <span>{project.stats.date}</span>
-              </div>
-              {project.stats.growth && (
-                <div className="flex items-center gap-1 text-green-400">
-                  <TrendingUp className="w-3 h-3" />
-                  <span>{project.stats.growth}</span>
-                </div>
-              )}
-            </div>
-
-            {/* Actions */}
-            <div className="flex items-center gap-3 pt-2">
-              {project.liveUrl && (
-                <motion.a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 transition-all duration-300"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  <span className="text-sm font-medium">Live Demo</span>
-                </motion.a>
-              )}
-              {project.githubUrl && (
-                <motion.a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300"
-                >
-                  <Github className="w-4 h-4" />
-                  <span className="text-sm font-medium">Code</span>
-                </motion.a>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 export function Projects() {
-  const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  
+  const currentProject = projects[currentIndex];
+  const totalProjects = projects.length;
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalProjects);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, totalProjects]);
+
+  // Manual navigation
+  const goToPrevious = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prev) => (prev - 1 + totalProjects) % totalProjects);
+  };
+
+  const goToNext = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prev) => (prev + 1) % totalProjects);
+  };
+
+  const goToSlide = (index: number) => {
+    setIsAutoPlaying(false);
+    setCurrentIndex(index);
+  };
+
+  // Scroll-based progress
+  const { scrollYProgress } = useScroll({
+    target: sliderRef,
+    offset: ["start end", "end start"]
+  });
+
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section id="projects" className="relative min-h-screen w-full max-w-7xl mx-auto px-4 py-16 scroll-mt-20 sm:px-6 sm:py-20 sm:scroll-mt-32">
@@ -299,7 +191,7 @@ export function Projects() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 border border-purple-500/30 backdrop-blur-sm mb-6"
         >
           <Sparkles className="w-4 h-4 text-purple-400" />
-          <span className="text-sm text-purple-300 font-medium">Featured Projects</span>
+          <span className="text-sm text-purple-300 font-medium">Project Showcase</span>
           <Zap className="w-4 h-4 text-blue-400" />
         </motion.div>
 
@@ -310,39 +202,231 @@ export function Projects() {
         </h2>
         
         <p className="text-base sm:text-lg text-white/60 max-w-3xl mx-auto leading-relaxed">
-          Cutting-edge projects that showcase expertise in modern technologies, 
-          creative problem-solving, and user-centric design principles.
+          Explore my latest projects with an interactive showcase featuring cutting-edge technologies
+          and creative solutions.
         </p>
       </motion.div>
 
-      {/* Featured Projects Grid */}
-      <div className="relative z-10 space-y-8 sm:space-y-12 mb-16">
-        {featuredProjects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
-      </div>
+      {/* Slider Container */}
+      <div ref={sliderRef} className="relative z-10">
+        {/* Progress Bar */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 rounded-full overflow-hidden">
+          <motion.div
+            className="h-full bg-gradient-to-r from-purple-500 to-blue-500"
+            style={{ scaleX }}
+          />
+        </div>
 
-      {/* Other Projects */}
-      {otherProjects.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative z-10"
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">More Projects</h3>
-            <p className="text-white/60">Exploring diverse technologies and challenges</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {otherProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={featuredProjects.length + index} />
+        {/* Main Slider */}
+        <div className="relative overflow-hidden rounded-3xl">
+          <motion.div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ x: `-${currentIndex * 100}%` }}
+          >
+            {projects.map((project, index) => (
+              <div key={project.id} className="w-full flex-shrink-0 px-4">
+                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10">
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="absolute top-4 left-4 z-20"
+                    >
+                      <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 backdrop-blur-sm">
+                        <Star className="w-3 h-3 text-yellow-400 fill-yellow-400" />
+                        <span className="text-xs text-yellow-300 font-medium">Featured</span>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Category Badge */}
+                  <div className="absolute top-4 right-4 z-20">
+                    <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${categoryColors[project.category]}/20 border border-white/20 backdrop-blur-sm`}>
+                      <span className="text-xs text-white font-medium capitalize">{project.category}</span>
+                    </div>
+                  </div>
+
+                  {/* Project Content */}
+                  <div className="p-6 sm:p-8 lg:p-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                      {/* Left Column - Text Content */}
+                      <div className="space-y-6">
+                        {/* Icon */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 0.2 }}
+                          className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center"
+                        >
+                          {project.icon}
+                        </motion.div>
+
+                        {/* Title */}
+                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
+                          {project.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+                          {project.description}
+                        </p>
+
+                        {/* Tech Stack */}
+                        <div className="flex flex-wrap gap-2">
+                          {project.tech.map((tech, i) => (
+                            <span
+                              key={i}
+                              className="px-3 py-1 text-xs rounded-lg bg-white/5 border border-white/10 text-white/70"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Stats */}
+                        <div className="flex items-center gap-4 text-xs text-white/50">
+                          {project.stats.stars && (
+                            <div className="flex items-center gap-1">
+                              <Star className="w-3 h-3" />
+                              <span>{project.stats.stars}</span>
+                            </div>
+                          )}
+                          {project.stats.users && (
+                            <div className="flex items-center gap-1">
+                              <Users className="w-3 h-3" />
+                              <span>{project.stats.users}</span>
+                            </div>
+                          )}
+                          <div className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            <span>{project.stats.date}</span>
+                          </div>
+                          {project.stats.growth && (
+                            <div className="flex items-center gap-1 text-green-400">
+                              <TrendingUp className="w-3 h-3" />
+                              <span>{project.stats.growth}</span>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Actions */}
+                        <div className="flex items-center gap-3">
+                          {project.liveUrl && (
+                            <motion.a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 transition-all duration-300"
+                            >
+                              <Globe className="w-4 h-4" />
+                              <span className="text-sm font-medium">Live Demo</span>
+                            </motion.a>
+                          )}
+                          {project.githubUrl && (
+                            <motion.a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300"
+                            >
+                              <Github className="w-4 h-4" />
+                              <span className="text-sm font-medium">Code</span>
+                            </motion.a>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Right Column - Visual */}
+                      <div className="relative">
+                        <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10">
+                          <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[project.category]} opacity-20`} />
+                          <div className="absolute inset-0 bg-black/40" />
+                          
+                          {/* Placeholder for project image */}
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
+                              <Code2 className="w-12 h-12 text-white/50" />
+                            </div>
+                          </div>
+
+                          {/* Floating elements */}
+                          <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute top-4 right-4 w-3 h-3 rounded-full bg-white/20"
+                          />
+                          <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                            className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-white/20"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Navigation Controls */}
+        <div className="flex items-center justify-between mt-8">
+          {/* Previous Button */}
+          <motion.button
+            onClick={goToPrevious}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 transition-all duration-300"
+          >
+            <ArrowLeft className="w-5 h-5 text-white" />
+          </motion.button>
+
+          {/* Dots Indicator */}
+          <div className="flex items-center gap-2">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-8 bg-gradient-to-r from-purple-500 to-blue-500'
+                    : 'bg-white/20 hover:bg-white/30'
+                }`}
+              />
             ))}
           </div>
-        </motion.div>
-      )}
+
+          {/* Next Button */}
+          <motion.button
+            onClick={goToNext}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 transition-all duration-300"
+          >
+            <ArrowRight className="w-5 h-5 text-white" />
+          </motion.button>
+        </div>
+
+        {/* Auto-play Toggle */}
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300"
+          >
+            <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-green-400' : 'bg-white/40'}`} />
+            <span className="text-xs text-white/60">
+              {isAutoPlaying ? 'Auto-playing' : 'Paused'}
+            </span>
+          </button>
+        </div>
+      </div>
 
       {/* Call to Action */}
       <motion.div
