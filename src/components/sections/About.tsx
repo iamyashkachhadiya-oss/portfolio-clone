@@ -41,11 +41,15 @@ export function About() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative"
         >
-          <div className="aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
-            <div className="h-full w-full bg-gradient-to-br from-accent-teal/20 via-accent-blue/10 to-accent-purple/20" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-2xl font-semibold text-white/50">Profile</span>
-            </div>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
+            <Image
+              src="/profile.jpg"
+              alt="Yash Kachhadiya"
+              fill
+              className="object-cover"
+              sizes="(min-width: 768px) 50vw, 100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </div>
           <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/10" />
         </motion.div>

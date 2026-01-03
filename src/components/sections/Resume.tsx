@@ -194,39 +194,127 @@ export function Resume() {
           </motion.button>
         </motion.div>
 
-        {/* Alternative Download Options */}
+        {/* Cool Interactive Features */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
+          className="flex flex-col items-center gap-8"
         >
-          <motion.a
-            href="/resume.pdf"
-            target="_blank"
-            download="Yash-Kachhadiya-Resume.pdf"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 transition-all duration-300"
-          >
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-sm font-medium text-white">View in Browser</span>
-            <ArrowRight className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
-          </motion.a>
+          {/* Resume Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full max-w-2xl">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="relative bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center">
+                <div className="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full animate-pulse" />
+                <div className="text-3xl font-bold text-white mb-2">5+</div>
+                <div className="text-sm text-white/70">Years Experience</div>
+              </div>
+            </motion.div>
 
-          <motion.a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group relative inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all duration-300"
-          >
-            <Zap className="w-4 h-4 text-blue-400" />
-            <span className="text-sm font-medium text-white">View on GitHub</span>
-            <ArrowRight className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
-          </motion.a>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="relative bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center">
+                <div className="absolute top-2 right-2 w-3 h-3 bg-blue-400 rounded-full animate-pulse" />
+                <div className="text-3xl font-bold text-white mb-2">50+</div>
+                <div className="text-sm text-white/70">Projects Completed</div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="relative bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-xl border border-white/10 rounded-2xl p-6 text-center">
+                <div className="absolute top-2 right-2 w-3 h-3 bg-purple-400 rounded-full animate-pulse" />
+                <div className="text-3xl font-bold text-white mb-2">9.17</div>
+                <div className="text-sm text-white/70">GPA Score</div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Interactive Skills Showcase */}
+          <div className="w-full max-w-3xl">
+            <div className="text-center mb-6">
+              <h3 className="text-xl font-semibold text-white mb-2">Management & Business Skills</h3>
+              <p className="text-white/60 text-sm">Hover to see proficiency levels</p>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { name: "Project Management", level: 95, color: "from-purple-500 to-pink-500" },
+                { name: "Product Strategy", level: 88, color: "from-blue-500 to-indigo-500" },
+                { name: "Team Leadership", level: 92, color: "from-green-500 to-emerald-500" },
+                { name: "Business Analytics", level: 85, color: "from-orange-500 to-red-500" },
+                { name: "Entrepreneurship", level: 90, color: "from-yellow-500 to-orange-500" },
+                { name: "Market Research", level: 82, color: "from-cyan-500 to-blue-500" },
+                { name: "Stakeholder Mgmt", level: 87, color: "from-purple-500 to-blue-500" },
+                { name: "Agile Methods", level: 93, color: "from-green-500 to-lime-500" }
+              ].map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative group"
+                >
+                  <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-3 text-center">
+                    <div className="text-xs sm:text-sm font-medium text-white mb-2">{skill.name}</div>
+                    <div className="relative w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: index * 0.1 }}
+                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
+                      />
+                    </div>
+                    <div className="text-xs text-white/50 mt-1">{skill.level}%</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Options */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="relative bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">✉</span>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-white">Email Me</div>
+                    <div className="text-xs text-white/60">your.email@example.com</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative group"
+            >
+              <div className="relative bg-gradient-to-r from-blue-500/20 to-green-500/20 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center">
+                    <span className="text-white font-bold text-sm">💼</span>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-white">LinkedIn</div>
+                    <div className="text-xs text-white/60">Connect with me</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Additional Info */}
