@@ -1,6 +1,7 @@
 import { FloatingDock } from "@/components/FloatingDock";
 import { Hero } from "@/components/sections/Hero";
 import { WorkExperience } from "@/components/sections/WorkExperience";
+import { Education } from "@/components/sections/Education";
 import { Certifications } from "@/components/sections/Certifications";
 import { ToolsCloud } from "@/components/sections/ToolsCloud";
 import { CapabilitiesReveal } from "@/components/sections/CapabilitiesReveal";
@@ -14,6 +15,8 @@ export default function Home() {
       <Hero name="Yash Kachhadiya" />
 
       <WorkExperience />
+
+      <Education />
 
       <Certifications />
 
