@@ -210,14 +210,6 @@ export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<"showcase" | "grid">("showcase");
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  const scrollY = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  }).scrollY;
-  
-  const opacity = useTransform(scrollY, [0, 0.5, 1], [0, 1, 0]);
-  const scale = useTransform(scrollY, [0, 0.5, 1], [0.8, 1, 0.8]);
 
   const filteredProjects = selectedCategory 
     ? projects.filter(p => p.category === selectedCategory)
@@ -244,7 +236,7 @@ export function Projects() {
   const currentProject = filteredProjects[currentIndex];
 
   return (
-    <section id="projects" className="relative min-h-screen overflow-hidden">
+    <section id="projects" className="relative overflow-hidden py-20 sm:py-32">
       {/* Premium Background Effects */}
       <div className="absolute inset-0">
         {/* Animated Gradient Orbs */}
@@ -416,7 +408,6 @@ export function Projects() {
         {viewMode === "showcase" ? (
           /* Showcase Mode */
           <motion.div
-            style={{ opacity, scale }}
             className="relative mb-20"
           >
             <AnimatePresence mode="wait">
