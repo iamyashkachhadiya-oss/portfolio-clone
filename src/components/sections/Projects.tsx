@@ -31,7 +31,7 @@ const projects: Project[] = [
     id: "1",
     title: "Fabric Allocation Method",
     description: "Advanced optimization system for efficient fabric allocation in textile mills, reducing waste and improving production efficiency.",
-    image: "/projects/fabric-allocation/preview.png",
+    image: "/projects/fabric-allocation/preview.jpg",
     tech: ["Python", "Linear Programming", "React", "PostgreSQL", "Pandas"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
@@ -117,6 +117,12 @@ export function Projects() {
   }, [nextProject]);
 
   const currentFeatured = featuredProjects[currentIndex];
+
+  // Debug logging
+  useEffect(() => {
+    console.log('Current featured project:', currentFeatured);
+    console.log('Current featured image path:', currentFeatured?.image);
+  }, [currentFeatured]);
 
   return (
     <section id="projects" className="relative py-20 sm:py-32">
