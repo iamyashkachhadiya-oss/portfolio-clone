@@ -2,6 +2,7 @@ import { FloatingDock } from "@/components/FloatingDock";
 import { Hero } from "@/components/sections/Hero";
 import { WorkExperience } from "@/components/sections/WorkExperience";
 import { Education } from "@/components/sections/Education";
+import { Projects } from "@/components/sections/Projects";
 import { Certifications } from "@/components/sections/Certifications";
 import { ToolsCloud } from "@/components/sections/ToolsCloud";
 import { CapabilitiesReveal } from "@/components/sections/CapabilitiesReveal";
@@ -18,6 +19,8 @@ export default function Home() {
       <WorkExperience />
 
       <Education />
+
+      <Projects />
 
       <Certifications />
 
