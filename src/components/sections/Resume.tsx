@@ -224,60 +224,70 @@ export function Resume() {
           </div>
 
           {/* Contact Options */}
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+            <motion.a
+              href="mailto:yashkachhadiyawork@gmail.com"
+              whileHover={{ scale: 1.1 }}
               className="relative group"
             >
-              <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
-                    <img 
-                      src="/logos/gmail-logo.png" 
-                      alt="Gmail" 
-                      className="w-8 h-8 object-contain"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        (target.nextElementSibling as HTMLElement).style.display = 'block';
-                      }}
-                    />
-                    <span className="text-white font-bold text-lg" style={{display: 'none'}}>✉</span>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-white">Email Me</div>
-                    <div className="text-xs text-zinc-500">yashkachhadiyawork@gmail.com</div>
-                  </div>
-                </div>
+              <div className="w-16 h-16 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 flex items-center justify-center hover:border-zinc-600 transition-all duration-300">
+                <img 
+                  src="/logos/gmail-logo.png" 
+                  alt="Gmail" 
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                  }}
+                />
+                <span className="text-red-500 text-2xl" style={{display: 'none'}}>G</span>
               </div>
-            </motion.div>
+            </motion.a>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
+            <motion.a
+              href="https://www.instagram.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
               className="relative group"
             >
-              <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
-                    <img 
-                      src="/logos/linkedin-logo.png" 
-                      alt="LinkedIn" 
-                      className="w-8 h-8 object-contain"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        (target.nextElementSibling as HTMLElement).style.display = 'block';
-                      }}
-                    />
-                    <span className="text-white font-bold text-lg" style={{display: 'none'}}>💼</span>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-white">LinkedIn</div>
-                    <div className="text-xs text-zinc-500">Connect with me</div>
-                  </div>
-                </div>
+              <div className="w-16 h-16 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 flex items-center justify-center hover:border-zinc-600 transition-all duration-300">
+                <img 
+                  src="/logos/instagram-logo.png" 
+                  alt="Instagram" 
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                  }}
+                />
+                <span className="text-pink-500 text-2xl" style={{display: 'none'}}>📷</span>
               </div>
-            </motion.div>
+            </motion.a>
+
+            <motion.a
+              href="https://www.linkedin.com/in/yash-kachhadiya-0275832a4/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              className="relative group"
+            >
+              <div className="w-16 h-16 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 flex items-center justify-center hover:border-zinc-600 transition-all duration-300">
+                <img 
+                  src="/logos/linkedin-logo.png" 
+                  alt="LinkedIn" 
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
+                  }}
+                />
+                <span className="text-blue-500 text-2xl font-bold" style={{display: 'none'}}>in</span>
+              </div>
+            </motion.a>
           </div>
         </motion.div>
 
