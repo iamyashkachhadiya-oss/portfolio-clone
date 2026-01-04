@@ -98,7 +98,7 @@ export function Resume() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             disabled={isDownloading}
-            className="group relative inline-flex items-center justify-center gap-4 px-8 py-4 sm:px-12 sm:py-6 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-lg sm:text-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden min-w-[280px] sm:min-w-[320px]"
+            className="group relative inline-flex items-center justify-center gap-3 px-6 py-3 sm:px-8 sm:py-4 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden min-w-[200px] sm:min-w-[280px]"
           >
             {/* Progress bar overlay */}
             {isDownloading && (
@@ -111,7 +111,7 @@ export function Resume() {
             )}
 
             {/* Content */}
-            <div className="relative flex items-center gap-3 sm:gap-4">
+            <div className="relative flex items-center gap-2 sm:gap-3">
               {/* Icon with animation */}
               <motion.div
                 animate={isDownloading ? { rotate: [0, 360] } : {}}
@@ -121,12 +121,12 @@ export function Resume() {
                   repeat: isDownloading ? Infinity : 0
                 }}
               >
-                <FileText size={24} className="sm:size-28" />
+                <FileText size={20} className="sm:size-24" />
               </motion.div>
 
               {/* Text */}
               <div className="flex flex-col items-center">
-                <span className="text-base sm:text-lg font-bold">
+                <span className="text-sm sm:text-base font-bold">
                   {isDownloading ? `Downloading... ${downloadProgress}%` : 'Download Resume'}
                 </span>
                 {!isDownloading && (
@@ -142,7 +142,7 @@ export function Resume() {
                   repeat: isDownloading ? Infinity : 0
                 }}
               >
-                <Download size={20} className="sm:size-24" />
+                <Download size={16} className="sm:size-20" />
               </motion.div>
             </div>
           </motion.button>
