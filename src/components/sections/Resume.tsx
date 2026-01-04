@@ -241,7 +241,7 @@ export function Resume() {
                     (target.nextElementSibling as HTMLElement).style.display = 'flex';
                   }}
                 />
-                <span className="text-red-500 text-xl" style={{display: 'none'}}>G</span>
+                <span className="text-red-500 text-xl font-bold" style={{display: 'none'}}>G</span>
               </div>
             </motion.a>
 
@@ -285,7 +285,7 @@ export function Resume() {
                     (target.nextElementSibling as HTMLElement).style.display = 'flex';
                   }}
                 />
-                <span className="text-blue-500 text-xl" style={{display: 'none'}}>in</span>
+                <span className="text-blue-500 text-xl font-bold" style={{display: 'none'}}>in</span>
               </div>
             </motion.a>
           </div>
