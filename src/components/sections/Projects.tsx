@@ -157,11 +157,11 @@ export function Projects() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Selected Work
+            Product Portfolio
           </h2>
           <p className="text-lg text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            A curated collection of projects that demonstrate thoughtful design, 
-            technical excellence, and attention to detail.
+            A collection of innovative products and solutions that demonstrate strategic thinking, 
+            user-centered design, and data-driven product development.
           </p>
         </motion.div>
 
@@ -445,29 +445,39 @@ export function Projects() {
           </div>
         )}
 
-        {/* Summary */}
+        {/* Product Management Summary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center pt-16 border-t border-zinc-800"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
-              <div className="text-sm text-zinc-500">Projects Completed</div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <blockquote className="text-lg sm:text-xl text-zinc-300 italic leading-relaxed">
+              "Great product management is about understanding the user's needs deeply and translating them into products that solve real problems."
+            </blockquote>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
+                <div className="text-sm text-zinc-500">Products Delivered</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white mb-2">{featuredProjects.length}</div>
+                <div className="text-sm text-zinc-500">Flagship Solutions</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white mb-2">5+</div>
+                <div className="text-sm text-zinc-500">Years Product Experience</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-white mb-2">100%</div>
+                <div className="text-sm text-zinc-500">User-Centric Approach</div>
+              </div>
             </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">{featuredProjects.length}</div>
-              <div className="text-sm text-zinc-500">Featured Works</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">5+</div>
-              <div className="text-sm text-zinc-500">Years Experience</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-2">100%</div>
-              <div className="text-sm text-zinc-500">Client Satisfaction</div>
+            
+            <div className="text-sm text-zinc-500">
+              <p className="mb-2">From ideation to execution - driving product excellence through data-driven decisions and user-focused innovation.</p>
             </div>
           </div>
         </motion.div>
