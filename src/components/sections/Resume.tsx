@@ -229,24 +229,32 @@ export function Resume() {
               whileHover={{ scale: 1.05 }}
               className="relative group"
             >
-              <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4">
+              <a 
+                href="mailto:yashkachhadiyawork@gmail.com"
+                className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4 block hover:border-zinc-700 transition-colors"
+              >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
                     <span className="text-white font-bold text-sm">✉</span>
                   </div>
                   <div>
                     <div className="text-sm font-medium text-white">Email Me</div>
-                    <div className="text-xs text-zinc-500">your.email@example.com</div>
+                    <div className="text-xs text-zinc-500">yashkachhadiyawork@gmail.com</div>
                   </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
 
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="relative group"
             >
-              <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4">
+              <a 
+                href="https://www.linkedin.com/in/yash-kachhadiya-0275832a4/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4 block hover:border-zinc-700 transition-colors"
+              >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
                     <span className="text-white font-bold text-sm">💼</span>
@@ -256,7 +264,7 @@ export function Resume() {
                     <div className="text-xs text-zinc-500">Connect with me</div>
                   </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           </div>
         </motion.div>
