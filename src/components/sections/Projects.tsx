@@ -457,27 +457,9 @@ export function Projects() {
               "Great product management is about understanding the user's needs deeply and translating them into products that solve real problems."
             </blockquote>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
-                <div className="text-sm text-zinc-500">Products Delivered</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">{featuredProjects.length}</div>
-                <div className="text-sm text-zinc-500">Flagship Solutions</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">5+</div>
-                <div className="text-sm text-zinc-500">Years Product Experience</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-white mb-2">100%</div>
-                <div className="text-sm text-zinc-500">User-Centric Approach</div>
-              </div>
-            </div>
-            
             <div className="text-sm text-zinc-500">
               <p className="mb-2">From ideation to execution - driving product excellence through data-driven decisions and user-focused innovation.</p>
+              <p>Bridging textile industry expertise with modern technology to create innovative solutions.</p>
             </div>
           </div>
         </motion.div>
