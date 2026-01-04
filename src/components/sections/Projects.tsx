@@ -130,6 +130,25 @@ export function Projects() {
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-3xl" />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Test Image Display */}
+        <div className="mb-8 p-4 bg-zinc-800 rounded-lg">
+          <h3 className="text-white mb-4">Image Test:</h3>
+          <div className="grid grid-cols-5 gap-4">
+            {projects.map((project) => (
+              <div key={project.id} className="text-center">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-20 h-20 object-cover rounded mb-2"
+                  onError={(e) => console.error('Test failed:', project.image)}
+                  onLoad={() => console.log('Test loaded:', project.image)}
+                />
+                <p className="text-xs text-zinc-400">{project.title.split(' ')[0]}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Elegant Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
