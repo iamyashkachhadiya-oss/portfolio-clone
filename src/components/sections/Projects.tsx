@@ -11,7 +11,6 @@ import {
   Grid3x3,
   Eye
 } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 
 type Project = {
@@ -190,17 +189,19 @@ export function Projects() {
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image */}
                     <div className="relative h-64 md:h-auto md:min-h-[500px] overflow-hidden bg-zinc-800">
-                      <Image
+                      <img
                         src={currentFeatured.image}
                         alt={currentFeatured.title}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="w-full h-full object-cover"
+                        style={{ minHeight: '300px', backgroundColor: '#1f2937' }}
                         onError={(e) => {
+                          console.error('Image failed to load:', currentFeatured.image);
                           const target = e.target as HTMLImageElement;
                           target.src = '/projects/crypto-trading/preview.jpg'; // fallback image
                         }}
-                        unoptimized={true}
+                        onLoad={() => {
+                          console.log('Image loaded successfully:', currentFeatured.image);
+                        }}
                       />
                     </div>
                     
@@ -340,17 +341,19 @@ export function Projects() {
                   <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-all group-hover:shadow-lg group-hover:shadow-blue-500/10">
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden bg-zinc-800">
-                      <Image
+                      <img
                         src={project.image}
                         alt={project.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        style={{ minHeight: '200px', backgroundColor: '#1f2937' }}
                         onError={(e) => {
+                          console.error('Grid image failed to load:', project.image);
                           const target = e.target as HTMLImageElement;
                           target.src = '/projects/crypto-trading/preview.jpg'; // fallback image
                         }}
-                        unoptimized={true}
+                        onLoad={() => {
+                          console.log('Grid image loaded successfully:', project.image);
+                        }}
                       />
                     </div>
                     
