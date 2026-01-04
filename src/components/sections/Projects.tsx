@@ -30,10 +30,10 @@ type Project = {
 const projects: Project[] = [
   {
     id: "1",
-    title: "Analytics Platform",
-    description: "Real-time data visualization and business intelligence platform for enterprise clients.",
-    image: "/projects/analytics-platform/preview.jpg",
-    tech: ["React", "TypeScript", "D3.js", "Node.js"],
+    title: "Fabric Allocation Method",
+    description: "Advanced optimization system for efficient fabric allocation in textile mills, reducing waste and improving production efficiency.",
+    image: "/projects/fabric-allocation/preview.jpg",
+    tech: ["Python", "Linear Programming", "React", "PostgreSQL", "Pandas"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     year: 2024,
@@ -42,50 +42,50 @@ const projects: Project[] = [
   },
   {
     id: "2",
-    title: "Mobile Commerce",
-    description: "E-commerce mobile application with modern UI and seamless payment integration.",
-    image: "/projects/mobile-commerce/preview.jpg",
-    tech: ["React Native", "Redux", "Stripe", "Firebase"],
+    title: "Crypto Trading Platform",
+    description: "Real-time cryptocurrency trading platform with advanced analytics, portfolio management, and automated trading strategies.",
+    image: "/projects/crypto-trading/preview.jpg",
+    tech: ["React", "Node.js", "WebSocket", "MongoDB", "Chart.js"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     year: 2024,
-    category: "Mobile",
+    category: "Platform",
     featured: true
   },
   {
     id: "3",
-    title: "Design System",
-    description: "Comprehensive component library with accessibility and theming capabilities.",
-    image: "/projects/design-system/preview.jpg",
-    tech: ["Vue.js", "Storybook", "Sass", "Jest"],
+    title: "Textile Mill Website",
+    description: "Modern responsive website for textile mill with product catalog, order management, and customer portal integration.",
+    image: "/projects/textile-website/preview.jpg",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "MySQL"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     year: 2023,
-    category: "Design",
+    category: "Web",
     featured: false
   },
   {
     id: "4",
-    title: "Content Management",
-    description: "Headless CMS with API-first architecture and real-time collaboration features.",
-    image: "/projects/cms/preview.jpg",
-    tech: ["Next.js", "GraphQL", "PostgreSQL", "Redis"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    year: 2023,
-    category: "Platform",
-    featured: false
-  },
-  {
-    id: "5",
-    title: "AI Assistant",
-    description: "Intelligent chat interface with natural language processing and context awareness.",
-    image: "/projects/ai-assistant/preview.jpg",
-    tech: ["Python", "FastAPI", "React", "OpenAI"],
+    title: "Sales Forecasting Platform",
+    description: "AI-powered sales forecasting platform with machine learning models for accurate revenue predictions and trend analysis.",
+    image: "/projects/sales-forecasting/preview.jpg",
+    tech: ["Python", "TensorFlow", "FastAPI", "React", "D3.js"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
     year: 2024,
     category: "AI",
+    featured: false
+  },
+  {
+    id: "5",
+    title: "Analytics Platform",
+    description: "Real-time data visualization and business intelligence platform for enterprise clients.",
+    image: "/projects/analytics-platform/preview.jpg",
+    tech: ["React", "TypeScript", "D3.js", "Node.js"],
+    liveUrl: "https://example.com",
+    githubUrl: "https://github.com",
+    year: 2024,
+    category: "Enterprise",
     featured: false
   }
 ];
@@ -302,9 +302,8 @@ export function Projects() {
               {[
                 { id: null, label: "All", count: projects.length },
                 { id: "Enterprise", label: "Enterprise", count: projects.filter(p => p.category === "Enterprise").length },
-                { id: "Mobile", label: "Mobile", count: projects.filter(p => p.category === "Mobile").length },
-                { id: "Design", label: "Design", count: projects.filter(p => p.category === "Design").length },
                 { id: "Platform", label: "Platform", count: projects.filter(p => p.category === "Platform").length },
+                { id: "Web", label: "Web", count: projects.filter(p => p.category === "Web").length },
                 { id: "AI", label: "AI", count: projects.filter(p => p.category === "AI").length }
               ].map((category) => (
                 <button
