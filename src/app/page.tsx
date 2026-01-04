@@ -9,6 +9,7 @@ import { CapabilitiesReveal } from "@/components/sections/CapabilitiesReveal";
 import { RecommendationsMasonry } from "@/components/sections/RecommendationsMasonry";
 import { Resume } from "@/components/sections/Resume";
 import { About } from "@/components/sections/About";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -29,6 +30,8 @@ export default function Home() {
 
       <Resume />
       <About />
+
+      <Footer />
 
       <FloatingDock delay={0.85} />
     </main>

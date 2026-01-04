@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowRight, User } from "lucide-react";
 
 export function About() {
   return (
@@ -32,6 +33,17 @@ export function About() {
             <p className="text-zinc-400 leading-relaxed">
               When I’m not building, you’ll find me playing piano, experimenting in the kitchen, or exploring how algorithms shape human behavior.
             </p>
+
+            {/* Know More Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group relative inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/20 hover:border-white/30 transition-all duration-300"
+            >
+              <User className="w-4 h-4 text-blue-400" />
+              <span className="text-sm font-medium text-white">Know More About Me</span>
+              <ArrowRight className="w-4 h-4 text-white/70 group-hover:text-white transition-colors" />
+            </motion.button>
           </motion.div>
         </div>
 
