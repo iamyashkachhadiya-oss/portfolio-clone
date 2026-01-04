@@ -224,24 +224,15 @@ export function Resume() {
           </div>
 
           {/* Contact Options */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <motion.a
               href="mailto:yashkachhadiyawork@gmail.com"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               className="relative group"
             >
-              <div className="w-16 h-16 bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
-                <img 
-                  src="/logos/gmail-logo.png" 
-                  alt="Gmail" 
-                  className="w-10 h-10 object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
-                  }}
-                />
-                <span className="text-red-500 text-2xl" style={{display: 'none'}}>G</span>
+              <div className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <span className="relative z-10">Email</span>
               </div>
             </motion.a>
 
@@ -249,21 +240,12 @@ export function Resume() {
               href="https://www.instagram.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               className="relative group"
             >
-              <div className="w-16 h-16 bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
-                <img 
-                  src="/logos/instagram-logo.png" 
-                  alt="Instagram" 
-                  className="w-10 h-10 object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
-                  }}
-                />
-                <span className="text-pink-500 text-2xl" style={{display: 'none'}}>📷</span>
+              <div className="px-6 py-3 bg-gradient-to-r from-pink-500 to-orange-500 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <span className="relative z-10">Instagram</span>
               </div>
             </motion.a>
 
@@ -271,21 +253,12 @@ export function Resume() {
               href="https://www.linkedin.com/in/yash-kachhadiya-0275832a4/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               className="relative group"
             >
-              <div className="w-16 h-16 bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
-                <img 
-                  src="/logos/linkedin-logo.png" 
-                  alt="LinkedIn" 
-                  className="w-10 h-10 object-contain"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    (target.nextElementSibling as HTMLElement).style.display = 'flex';
-                  }}
-                />
-                <span className="text-blue-500 text-2xl font-bold" style={{display: 'none'}}>in</span>
+              <div className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                <span className="relative z-10">LinkedIn</span>
               </div>
             </motion.a>
           </div>
