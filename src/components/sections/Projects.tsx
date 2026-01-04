@@ -196,6 +196,11 @@ export function Projects() {
                         fill
                         className="object-cover"
                         sizes="(min-width: 768px) 50vw, 100vw"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/projects/crypto-trading/preview.jpg'; // fallback image
+                        }}
+                        unoptimized={true}
                       />
                     </div>
                     
@@ -341,6 +346,11 @@ export function Projects() {
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = '/projects/crypto-trading/preview.jpg'; // fallback image
+                        }}
+                        unoptimized={true}
                       />
                     </div>
                     
