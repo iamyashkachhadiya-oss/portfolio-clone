@@ -230,7 +230,7 @@ export function Resume() {
               whileHover={{ scale: 1.1 }}
               className="relative group"
             >
-              <div className="w-16 h-16 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 flex items-center justify-center hover:border-zinc-600 transition-all duration-300">
+              <div className="w-16 h-16 bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <img 
                   src="/logos/gmail-logo.png" 
                   alt="Gmail" 
@@ -252,7 +252,7 @@ export function Resume() {
               whileHover={{ scale: 1.1 }}
               className="relative group"
             >
-              <div className="w-16 h-16 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 flex items-center justify-center hover:border-zinc-600 transition-all duration-300">
+              <div className="w-16 h-16 bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <img 
                   src="/logos/instagram-logo.png" 
                   alt="Instagram" 
@@ -274,7 +274,7 @@ export function Resume() {
               whileHover={{ scale: 1.1 }}
               className="relative group"
             >
-              <div className="w-16 h-16 rounded-full bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 flex items-center justify-center hover:border-zinc-600 transition-all duration-300">
+              <div className="w-16 h-16 bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl">
                 <img 
                   src="/logos/linkedin-logo.png" 
                   alt="LinkedIn" 
