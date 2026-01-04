@@ -31,7 +31,7 @@ const projects: Project[] = [
     id: "1",
     title: "Fabric Allocation Method",
     description: "Advanced optimization system for efficient fabric allocation in textile mills, reducing waste and improving production efficiency.",
-    image: "/projects/fabric-allocation/preview.jpg",
+    image: "/projects/fabric-allocation/preview.png",
     tech: ["Python", "Linear Programming", "React", "PostgreSQL", "Pandas"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
