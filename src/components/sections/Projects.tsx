@@ -120,8 +120,11 @@ export function Projects() {
   const currentFeatured = featuredProjects[currentIndex];
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative py-20 sm:py-32">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 rounded-3xl" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Elegant Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -129,10 +132,10 @@ export function Projects() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Selected Work
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-zinc-400 max-w-3xl mx-auto leading-relaxed">
             A curated collection of projects that demonstrate thoughtful design, 
             technical excellence, and attention to detail.
           </p>
@@ -146,13 +149,13 @@ export function Projects() {
           transition={{ delay: 0.1 }}
           className="flex justify-center mb-16"
         >
-          <div className="inline-flex border border-gray-200 rounded-lg overflow-hidden">
+          <div className="inline-flex border border-zinc-800 rounded-lg overflow-hidden bg-zinc-900/50 backdrop-blur-sm">
             <button
               onClick={() => setViewMode("featured")}
               className={`px-6 py-3 text-sm font-medium transition-colors ${
                 viewMode === "featured"
-                  ? "bg-gray-900 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-50"
+                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                  : "text-zinc-400 hover:text-white"
               }`}
             >
               <Eye className="w-4 h-4 inline mr-2" />
@@ -162,8 +165,8 @@ export function Projects() {
               onClick={() => setViewMode("grid")}
               className={`px-6 py-3 text-sm font-medium transition-colors ${
                 viewMode === "grid"
-                  ? "bg-gray-900 text-white"
-                  : "bg-white text-gray-700 hover:bg-gray-50"
+                  ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white"
+                  : "text-zinc-400 hover:text-white"
               }`}
             >
               <Grid3x3 className="w-4 h-4 inline mr-2" />
@@ -183,10 +186,10 @@ export function Projects() {
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
-                <div className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200">
+                <div className="bg-zinc-900/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-zinc-800">
                   <div className="grid md:grid-cols-2 gap-0">
                     {/* Image */}
-                    <div className="relative h-64 md:h-auto md:min-h-[500px] overflow-hidden bg-gray-100">
+                    <div className="relative h-64 md:h-auto md:min-h-[500px] overflow-hidden bg-zinc-800">
                       <Image
                         src={currentFeatured.image}
                         alt={currentFeatured.title}
@@ -200,19 +203,19 @@ export function Projects() {
                     <div className="p-8 md:p-12 flex flex-col justify-center">
                       <div className="mb-6">
                         <div className="flex items-center gap-4 mb-4">
-                          <span className="text-sm text-gray-500 font-medium">
+                          <span className="text-sm text-blue-400 font-medium">
                             {currentFeatured.category}
                           </span>
-                          <span className="text-sm text-gray-400">
+                          <span className="text-sm text-zinc-500">
                             {currentFeatured.year}
                           </span>
                         </div>
                         
-                        <h3 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
                           {currentFeatured.title}
                         </h3>
                         
-                        <p className="text-gray-600 leading-relaxed mb-8">
+                        <p className="text-zinc-400 leading-relaxed mb-8">
                           {currentFeatured.description}
                         </p>
                       </div>
@@ -223,7 +226,7 @@ export function Projects() {
                           {currentFeatured.tech.map((tech) => (
                             <span
                               key={tech}
-                              className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700"
+                              className="px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-full text-sm text-blue-300"
                             >
                               {tech}
                             </span>
@@ -237,7 +240,7 @@ export function Projects() {
                           href={currentFeatured.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 text-center py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                          className="flex-1 text-center py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all"
                         >
                           <ExternalLink className="w-4 h-4 inline mr-2" />
                           View Project
@@ -246,7 +249,7 @@ export function Projects() {
                           href={currentFeatured.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 text-center py-3 bg-white text-gray-900 rounded-lg font-medium border border-gray-200 hover:bg-gray-50 transition-colors"
+                          className="flex-1 text-center py-3 bg-zinc-800 text-white rounded-lg font-medium border border-zinc-700 hover:bg-zinc-700 transition-colors"
                         >
                           <Github className="w-4 h-4 inline mr-2" />
                           Source Code
@@ -262,7 +265,7 @@ export function Projects() {
             <div className="flex items-center justify-center gap-8 mt-12">
               <button
                 onClick={prevProject}
-                className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:text-gray-900 transition-colors"
+                className="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:border-zinc-600 hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
@@ -274,8 +277,8 @@ export function Projects() {
                     onClick={() => setCurrentIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all ${
                       index === currentIndex
-                        ? "w-8 bg-gray-900"
-                        : "bg-gray-300 hover:bg-gray-400"
+                        ? "w-8 bg-gradient-to-r from-blue-500 to-purple-500"
+                        : "bg-zinc-700 hover:bg-zinc-600"
                     }`}
                   />
                 ))}
@@ -283,7 +286,7 @@ export function Projects() {
               
               <button
                 onClick={nextProject}
-                className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:border-gray-400 hover:text-gray-900 transition-colors"
+                className="w-12 h-12 rounded-full border border-zinc-700 flex items-center justify-center text-zinc-400 hover:border-zinc-600 hover:text-white transition-colors"
               >
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -309,8 +312,8 @@ export function Projects() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-full border transition-all text-sm ${
                     selectedCategory === category.id
-                      ? "bg-gray-900 text-white border-gray-900"
-                      : "bg-white text-gray-700 border-gray-200 hover:border-gray-300"
+                      ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white border-transparent"
+                      : "bg-zinc-900/50 text-zinc-400 border-zinc-700 hover:border-zinc-600 hover:text-white"
                   }`}
                 >
                   {category.label}
@@ -330,9 +333,9 @@ export function Projects() {
                   transition={{ delay: index * 0.1 }}
                   className="group"
                 >
-                  <div className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-700 transition-all group-hover:shadow-lg group-hover:shadow-blue-500/10">
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden bg-gray-50">
+                    <div className="relative h-48 overflow-hidden bg-zinc-800">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -345,19 +348,19 @@ export function Projects() {
                     {/* Content */}
                     <div className="p-6">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs text-gray-500 font-medium uppercase tracking-wide">
+                        <span className="text-xs text-blue-400 font-medium uppercase tracking-wide">
                           {project.category}
                         </span>
-                        <span className="text-xs text-gray-400">
+                        <span className="text-xs text-zinc-500">
                           {project.year}
                         </span>
                       </div>
                       
-                      <h3 className="text-xl font-serif text-gray-900 mb-3">
+                      <h3 className="text-xl font-bold text-white mb-3">
                         {project.title}
                       </h3>
                       
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                      <p className="text-zinc-400 text-sm leading-relaxed mb-4 line-clamp-3">
                         {project.description}
                       </p>
                       
@@ -366,13 +369,13 @@ export function Projects() {
                         {project.tech.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
-                            className="px-2 py-1 bg-gray-50 border border-gray-100 rounded text-xs text-gray-600"
+                            className="px-2 py-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded text-xs text-blue-300"
                           >
                             {tech}
                           </span>
                         ))}
                         {project.tech.length > 3 && (
-                          <span className="px-2 py-1 bg-gray-50 border border-gray-100 rounded text-xs text-gray-400">
+                          <span className="px-2 py-1 bg-zinc-800 border border-zinc-700 rounded text-xs text-zinc-500">
                             +{project.tech.length - 3}
                           </span>
                         )}
@@ -384,7 +387,7 @@ export function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 text-center py-2 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                          className="flex-1 text-center py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-600 transition-all"
                         >
                           View
                         </a>
@@ -392,7 +395,7 @@ export function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 text-center py-2 bg-white text-gray-900 rounded-lg text-sm font-medium border border-gray-200 hover:bg-gray-50 transition-colors"
+                          className="flex-1 text-center py-2 bg-zinc-800 text-white rounded-lg text-sm font-medium border border-zinc-700 hover:bg-zinc-700 transition-colors"
                         >
                           Code
                         </a>
@@ -410,24 +413,24 @@ export function Projects() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center pt-16 border-t border-gray-200"
+          className="text-center pt-16 border-t border-zinc-800"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <div className="text-3xl font-serif text-gray-900 mb-2">{projects.length}</div>
-              <div className="text-sm text-gray-600">Projects Completed</div>
+              <div className="text-3xl font-bold text-white mb-2">{projects.length}</div>
+              <div className="text-sm text-zinc-500">Projects Completed</div>
             </div>
             <div>
-              <div className="text-3xl font-serif text-gray-900 mb-2">{featuredProjects.length}</div>
-              <div className="text-sm text-gray-600">Featured Works</div>
+              <div className="text-3xl font-bold text-white mb-2">{featuredProjects.length}</div>
+              <div className="text-sm text-zinc-500">Featured Works</div>
             </div>
             <div>
-              <div className="text-3xl font-serif text-gray-900 mb-2">5+</div>
-              <div className="text-sm text-gray-600">Years Experience</div>
+              <div className="text-3xl font-bold text-white mb-2">5+</div>
+              <div className="text-sm text-zinc-500">Years Experience</div>
             </div>
             <div>
-              <div className="text-3xl font-serif text-gray-900 mb-2">100%</div>
-              <div className="text-sm text-gray-600">Client Satisfaction</div>
+              <div className="text-3xl font-bold text-white mb-2">100%</div>
+              <div className="text-sm text-zinc-500">Client Satisfaction</div>
             </div>
           </div>
         </motion.div>
