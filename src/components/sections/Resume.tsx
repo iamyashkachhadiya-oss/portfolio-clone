@@ -231,8 +231,18 @@ export function Resume() {
             >
               <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">✉</span>
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                    <img 
+                      src="/logos/gmail-logo.png" 
+                      alt="Gmail" 
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        (target.nextElementSibling as HTMLElement).style.display = 'block';
+                      }}
+                    />
+                    <span className="text-white font-bold text-lg" style={{display: 'none'}}>✉</span>
                   </div>
                   <div>
                     <div className="text-sm font-medium text-white">Email Me</div>
@@ -248,8 +258,18 @@ export function Resume() {
             >
               <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">💼</span>
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                    <img 
+                      src="/logos/linkedin-logo.png" 
+                      alt="LinkedIn" 
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        (target.nextElementSibling as HTMLElement).style.display = 'block';
+                      }}
+                    />
+                    <span className="text-white font-bold text-lg" style={{display: 'none'}}>💼</span>
                   </div>
                   <div>
                     <div className="text-sm font-medium text-white">LinkedIn</div>
