@@ -4,12 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, 
   ArrowLeft, 
-  ExternalLink, 
-  Github, 
   Star, 
   Calendar,
   Grid3x3,
-  Eye
+  Eye,
+  Filter
 } from "lucide-react";
 import { useEffect, useState, useCallback } from "react";
 
@@ -208,28 +207,7 @@ export function Projects() {
                         </div>
                       </div>
                       
-                      {/* Actions */}
-                      <div className="flex gap-4">
-                        <a
-                          href={currentFeatured.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 text-center py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium hover:from-blue-600 hover:to-purple-600 transition-all"
-                        >
-                          <ExternalLink className="w-4 h-4 inline mr-2" />
-                          View Project
-                        </a>
-                        <a
-                          href={currentFeatured.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 text-center py-3 bg-zinc-800 text-white rounded-lg font-medium border border-zinc-700 hover:bg-zinc-700 transition-colors"
-                        >
-                          <Github className="w-4 h-4 inline mr-2" />
-                          Source Code
-                        </a>
                       </div>
-                    </div>
                   </div>
                 </div>
               </motion.div>
