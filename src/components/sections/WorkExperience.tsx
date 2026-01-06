@@ -69,11 +69,11 @@ const experiences: Experience[] = [
     location: "Surat, India",
     position: "Part-time Student Intern",
     duration: "Aug 2021 – Jan 2022",
-    highlights: ["20+ designs weekly", "10-12 reports", "5-7 clients supported"],
+    highlights: ["2+ designs weekly", "2 reports", "4 clients supported"],
     achievements: [
-      "Assisted in reviewing 20+ embroidery designs weekly and analyzed how stitch types and fabric selection affected production",
-      "Prepared 10–12 basic technical reports summarizing design preferences, thread usage, and fabric compatibility",
-      "Supported coordination between the production team and 5–7 regular clients, helping track sample status and design specifications"
+      "Assisted in reviewing 2+ embroidery designs weekly and analyzed how stitch types and fabric selection affected production",
+      "Prepared 2 basic technical reports summarizing design preferences, thread usage, and fabric compatibility",
+      "Supported coordination between the production team and 4 regular clients, helping track sample status and design specifications"
     ]
   }
 ];
