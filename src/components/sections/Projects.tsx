@@ -99,11 +99,11 @@ export function Projects() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Product Portfolio
+            Project Portfolio
           </h2>
           <p className="text-lg text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            A collection of innovative products and solutions that demonstrate strategic thinking, 
-            user-centered design, and data-driven product development.
+            A collection of projects developed through client collaboration, research-driven design, 
+            and iterative development processes focused on solving real-world challenges.
           </p>
         </motion.div>
 
@@ -345,7 +345,7 @@ export function Projects() {
           </div>
         )}
 
-        {/* Product Management Summary */}
+        {/* Project Summary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -354,12 +354,12 @@ export function Projects() {
         >
           <div className="max-w-4xl mx-auto space-y-8">
             <blockquote className="text-lg sm:text-xl text-zinc-300 italic leading-relaxed">
-              "Great product management is about understanding the user's needs deeply and translating them into products that solve real problems."
+              "Good design comes from understanding user needs through research and close client collaboration."
             </blockquote>
             
             <div className="text-sm text-zinc-500">
-              <p className="mb-2">From ideation to execution - driving product excellence through data-driven decisions and user-focused innovation.</p>
-              <p>Bridging textile industry expertise with modern technology to create innovative solutions.</p>
+              <p className="mb-2">Each project starts with research and client coordination to ensure the solution addresses real business needs.</p>
+              <p>Focus on practical design and iterative development based on user feedback and requirements.</p>
             </div>
           </div>
         </motion.div>
