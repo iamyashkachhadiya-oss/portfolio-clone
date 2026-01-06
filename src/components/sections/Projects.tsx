@@ -19,8 +19,6 @@ type Project = {
   description: string;
   image: string;
   tech: string[];
-  liveUrl?: string;
-  githubUrl?: string;
   year: number;
   category: string;
   featured: boolean;
@@ -33,8 +31,6 @@ const projects: Project[] = [
     description: "Advanced optimization system for efficient fabric allocation in textile mills, reducing waste and improving production efficiency.",
     image: "/projects/fabric-allocation/preview.jpg",
     tech: ["Python", "Linear Programming", "React", "PostgreSQL", "Pandas"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
     year: 2024,
     category: "Enterprise",
     featured: true
@@ -45,8 +41,6 @@ const projects: Project[] = [
     description: "Real-time cryptocurrency trading platform with advanced analytics, portfolio management, and automated trading strategies.",
     image: "/projects/crypto-trading/preview.jpg",
     tech: ["React", "Node.js", "WebSocket", "MongoDB", "Chart.js"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
     year: 2024,
     category: "Platform",
     featured: true
@@ -57,34 +51,8 @@ const projects: Project[] = [
     description: "Modern responsive website for textile mill with product catalog, order management, and customer portal integration.",
     image: "/projects/textile-website/preview.jpg",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "MySQL"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
     year: 2023,
     category: "Web",
-    featured: false
-  },
-  {
-    id: "4",
-    title: "Sales Forecasting Platform",
-    description: "AI-powered sales forecasting platform with machine learning models for accurate revenue predictions and trend analysis.",
-    image: "/projects/sales-forecasting/preview.jpg",
-    tech: ["Python", "TensorFlow", "FastAPI", "React", "D3.js"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    year: 2024,
-    category: "AI",
-    featured: false
-  },
-  {
-    id: "5",
-    title: "Analytics Platform",
-    description: "Real-time data visualization and business intelligence platform for enterprise clients.",
-    image: "/projects/analytics-platform/preview.jpg",
-    tech: ["React", "TypeScript", "D3.js", "Node.js"],
-    liveUrl: "https://example.com",
-    githubUrl: "https://github.com",
-    year: 2024,
-    category: "Enterprise",
     featured: false
   }
 ];
@@ -309,8 +277,7 @@ export function Projects() {
                 { id: null, label: "All", count: projects.length },
                 { id: "Enterprise", label: "Enterprise", count: projects.filter(p => p.category === "Enterprise").length },
                 { id: "Platform", label: "Platform", count: projects.filter(p => p.category === "Platform").length },
-                { id: "Web", label: "Web", count: projects.filter(p => p.category === "Web").length },
-                { id: "AI", label: "AI", count: projects.filter(p => p.category === "AI").length }
+                { id: "Web", label: "Web", count: projects.filter(p => p.category === "Web").length }
               ].map((category) => (
                 <button
                   key={category.id || "all"}
@@ -377,7 +344,7 @@ export function Projects() {
                       </p>
                       
                       {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-1 mb-6">
+                      <div className="flex flex-wrap gap-1">
                         {project.tech.slice(0, 3).map((tech) => (
                           <span
                             key={tech}
@@ -391,26 +358,6 @@ export function Projects() {
                             +{project.tech.length - 3}
                           </span>
                         )}
-                      </div>
-                      
-                      {/* Actions */}
-                      <div className="flex gap-3">
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 text-center py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg text-sm font-medium hover:from-blue-600 hover:to-purple-600 transition-all"
-                        >
-                          View
-                        </a>
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1 text-center py-2 bg-zinc-800 text-white rounded-lg text-sm font-medium border border-zinc-700 hover:bg-zinc-700 transition-colors"
-                        >
-                          Code
-                        </a>
                       </div>
                     </div>
                   </div>
