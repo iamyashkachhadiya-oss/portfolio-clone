@@ -237,7 +237,7 @@ export function Resume() {
             </motion.a>
 
             <motion.a
-              href="https://www.instagram.com/yourusername"
+              href="https://www.instagram.com/yashkachhadiyaa"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -262,38 +262,6 @@ export function Resume() {
               </div>
             </motion.a>
           </div>
-        </motion.div>
-
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="text-center space-y-4"
-        >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-zinc-500">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-400 rounded-full" />
-              <span>PDF Format</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full" />
-              <span>Updated 2024</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-blue-400 rounded-full" />
-              <span>Print Ready</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full" />
-              <span>ATS-Friendly</span>
-            </div>
-          </div>
-          
-          <p className="text-xs text-zinc-600 px-4">
-            For recruitment inquiries, feel free to reach out directly
-          </p>
         </motion.div>
       </div>
     </section>
