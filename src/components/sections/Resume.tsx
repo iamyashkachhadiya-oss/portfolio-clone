@@ -7,6 +7,8 @@ import { useState } from "react";
 export function Resume() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
+  
+  // Netlify deployment trigger
 
   const handleDownload = async () => {
     setIsDownloading(true);
