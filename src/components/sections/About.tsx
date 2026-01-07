@@ -53,17 +53,7 @@ export function About() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative"
         >
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
-            <Image
-              src="/profile.jpg"
-              alt="Yash Kachhadiya"
-              fill
-              className="object-cover"
-              sizes="(min-width: 768px) 50vw, 100vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-          </div>
-          <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/10" />
+          <div className="pointer-events-none absolute inset-0 rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900/50 via-zinc-800/30 to-zinc-900/50" />
         </motion.div>
       </div>
     </section>
