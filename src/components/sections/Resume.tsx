@@ -172,7 +172,7 @@ export function Resume() {
               className="relative group"
             >
               <div className="relative bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 text-center">
-                <div className="text-3xl font-bold text-white mb-2">50+</div>
+                <div className="text-3xl font-bold text-white mb-2">5+</div>
                 <div className="text-sm text-zinc-500">Projects Completed</div>
               </div>
             </motion.div>
